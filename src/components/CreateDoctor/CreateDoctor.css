@@ -1,0 +1,131 @@
+.create-doctor{
+    width: 100%;
+    
+}
+.doctor-name,.doctor-phoneNumber,.doctor-city,.doctor-district,.doctor-ward,.doctor-street,
+.doctor-dateOfBirth,.doctor-cmnd,.doctor-username,.doctor-password,.doctor-confirmPassword,.doctor-role,
+.doctor-clinic,.doctor-gender
+{
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 15px;
+    width: 100%;
+}
+.create-doctor input,select{
+    padding: 10px 10px;
+    border-radius: 5px;
+    outline: none;
+    border: 1px solid #cfcfcf;
+
+}
+.create-doctor label,.view-media label{
+    font-size: 0.8em;
+    margin-bottom: 0.25em;
+    color: #222;
+    font-weight: lighter;
+}
+.create-doctor input::placeholder{
+    font-size: 1.2em;
+    font-weight: lighter;
+    color: #999;
+}
+.create-doctor form{
+    padding-left: 20px;
+    padding-right: 20px;
+    display: flex;
+    justify-content: center;
+}
+.create-doctor button{
+    background-color: #519e8a;
+    color: #fff;
+    border: 2px solid #fff;
+    width: 100%;
+    margin-top: 1em;
+    padding: 8px 0px;
+    font-size: 1em;
+    font-weight: lighter;
+    letter-spacing: 1px;
+    margin-bottom: 0.25em;
+}
+.create-doctor form ion-icon{
+    font-size: 150px;
+    border:2px dashed  gray;
+    border-radius: 10px;
+}
+
+.avatar-doctor{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.view-media{
+    width: 800px;
+    height: 400px;
+    margin-top: 50px;
+}
+.view-media .media{
+    border : 2px dashed gray;
+    border-radius: 10px;
+    width: 800px;
+    height: 350px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+}
+.view-media .media ion-icon{
+    border:0px;
+    width: 80px;
+    height: 80px;
+}
+.view-media .media button{
+    width: 100px;
+    height: 50px;
+    background-color: white;
+    color: black;
+    border: 1px solid gray;
+    border-radius: 10px;
+
+}
+.view-media .media button:hover,
+.view-media .media:hover,
+.view-media .list-media .item-add:hover{
+    background-color: #F6F6F7;
+}
+.view-media .list-media{
+    width: 800px;
+    height: 350px;
+    padding: 20px;
+ 
+}
+.view-media .list-media .item-add{
+    width: 150px;
+    height: 150px;
+    border:2px dashed gray;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction:column;
+    cursor: pointer;
+    float:left;
+    margin:10px;
+}
+
+.view-media .list-media .item-add ion-icon{
+    width: 40px;
+    height: 40px;
+    border:0px;
+}
+.view-media .list-media .item{
+    width: 150px;
+    height: 150px;
+    border-radius: 10px;
+    overflow: hidden;
+    float:left;
+    margin:10px;
+}
+

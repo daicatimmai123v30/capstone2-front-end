@@ -1,0 +1,44 @@
+.view-chat{
+  position: absolute;
+  bottom: -48px;
+  right: 0px;
+  width: 350px;
+}
+.chat-services{
+    transition: .5s;
+    max-height: 0;
+  }
+  .chat-services.expand{
+    max-height: 350px;
+  }
+  .message {
+    max-width: 250px;
+  }
+
+  .chat-modal{
+    transition: .5s;
+    opacity: 0;
+    transform: translateX(500px);
+  }
+
+  .chat-modal.show{
+    opacity: 1;
+    transform: translateX(0);
+  }
+  .content-chat{
+    height: 500px;
+    background-color: white;
+  }
+  @keyframes animateModal {
+    from{
+      transform: translateX(200px) opacity(0);
+    }
+    to{
+      transform: translateX(0) opacity(1);
+    }
+  }
+
+  .video-call ion-icon{
+    font-size: 150%;
+    cursor: pointer;
+  }

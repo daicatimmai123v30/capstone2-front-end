@@ -1,0 +1,165 @@
+/* .main {
+    width: 100%;
+    background-color:#f5f3f5;
+    position: relative;
+    min-height: 900px;
+    display: flex;
+    flex-direction: column;
+
+}
+.body{
+    width: 100%;
+    flex:1;
+}
+
+.body-container{
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+.container-left, .container-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    
+}
+.container-left{
+    flex:0.35;
+}
+.container-right{
+    flex: 0.65;
+} */
+.container-right .box1{
+    width: 100%;
+    min-height: 100%;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    border-radius: 12px;
+    margin-bottom: 15px;
+    overflow: hidden;
+    overflow-y: auto;
+    overflow-x: hidden;
+}
+   
+
+.container-right .box1 .box-header1{
+    width: 100%;
+    height: 60px;
+    display: flex;
+    padding-left: 20px;
+    border-radius: 12px;
+    align-items: center;
+    margin-top:-1px;
+}
+.container-right .box1 .box-header1 .box-header-title1{
+    color:#6D5D5D;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+/* .user-information{
+    width: 80%;
+    min-height: 400px;
+    background-color: white;
+    border-radius: 12px;
+    border:2px solid #e2e0e2;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    justify-content: space-between;
+}
+.btn-label{
+    font-size: 22px;
+    font-family:'Trajan';
+    src: url('../../assets/fonts/Trajan\ Pro.ttf');
+    color:#1E3A28;
+    font-weight: bold;
+}
+.btn-process,.btn-authentication{
+    width: 250px;
+    height: 50px;
+    margin-top: 10px;
+    background-color: #D3F0D3;
+    border:2px solid #b4c1b4;
+}
+.user-avatar{
+    border-radius: 50%;
+    width: 170px;
+    height: 170px;
+    border:2px solid #b4c1b4;
+}
+.btn-process{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-between;
+    width: 300px;
+}
+.firstname-label{
+    font-family:'Trajan';
+    src: url('../../assets/fonts/Trajan\ Pro.ttf');
+    font-size: 30px;
+    font-weight: bold;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color:#1E3A28;
+    margin:0px
+
+}
+.pet-label{
+    font-family:'Trajan';
+    src: url('../../assets/fonts/Trajan\ Pro.ttf');
+    font-size: 24px;
+    color:#8D9986;
+
+} */
+.file{
+    height: 500px;
+    width: 400px;
+    margin-top: 40px;
+    margin-left: 30px;
+}
+
+.header_facility{
+    display: flex;
+    margin-bottom: 50px;
+    flex-direction: row;
+}
+.header_facility-img{
+    height: 175px;
+    object-fit: contain;
+    margin-right: 25px;
+    border-radius: 15px;
+}
+
+.header_facility-info{
+    margin-left: 12px;
+    display:flex;
+    flex-direction: column;
+}
+.header_facility-info .header_facility-descriotion span,
+.header_facility-info .header_facility-descriotion,
+.header_facility-info  .header_facility-name
+{
+    font-size: 24px;
+    font-family: 'Times New Roman', Times, serif;
+    text-align: start;
+    font-weight: bold;
+}
+
+.header_facility-info  .header_facility-descriotion span{
+    font-weight: normal;
+}
+
+.header_facility-info  .header_facility-name{
+    font-size: 30px;
+}

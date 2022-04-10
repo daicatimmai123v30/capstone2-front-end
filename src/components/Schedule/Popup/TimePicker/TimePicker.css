@@ -1,0 +1,23 @@
+.container-time-picker{
+    background-color: white;
+    position:absolute;
+    width: 200px;
+    height: 150px;
+    top: 100%;
+    left: 40%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    overflow-x: hidden;
+    overflow-y:scroll;
+    display: flex;
+    flex-direction: column;
+    padding:10px;
+    cursor: pointer;
+    z-index: 1;
+}
+.container-time-picker p{
+    font-weight: normal;
+    font-size: 17px;
+    font-family: 'Times New Roman', Times, serif;
+    border-bottom: 1px solid gray;
+
+}

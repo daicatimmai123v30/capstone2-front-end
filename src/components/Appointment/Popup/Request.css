@@ -1,0 +1,129 @@
+.container-request-appointment{
+    position: fixed;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0,0,0.7);
+    left: 0px;
+    right: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-request-appointment .request-appointment{
+    width: 500px;
+    height: 450px;
+    background-color: #F5F3F5;
+    border-radius: 10px;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+.container-request-appointment .request-appointment .request-appointment-header{
+    width: 100%;
+    height: 60px;
+    background-color: #E7C7C0;
+    display: flex;
+    align-items: center;
+    padding-left: 20px;
+}
+.container-request-appointment .request-appointment .request-appointment-header span{
+    font-size: 25px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: #1E3A28;
+}
+.container-request-appointment .request-appointment .request-appointment-content{
+    flex:1;
+    padding:0px 10px;
+}
+.request-appointment-content .input-pet,
+.request-appointment-content  .input-time,
+.request-appointment-content .input-content,
+.request-appointment-content .input-doctor
+
+{
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    margin-bottom: 10px;
+    
+}
+.request-appointment-content .input-pet label,
+.request-appointment-content  .input-time label,
+.request-appointment-content .input-content label,
+.request-appointment-content .input-doctor label
+{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.request-appointment-content .input-pet select,
+.request-appointment-content  .input-time input,
+.request-appointment-content .input-doctor input,
+.request-appointment-content .input-content textarea{
+    border:0px;
+    border-radius: 0px;
+    border-bottom: 1px solid #707070;
+    background-color: rgba(0, 0, 0, 0);
+    width: 300px;
+}
+.request-appointment-content .input-doctor input{
+    margin-left: 33px;
+}
+.request-appointment-content .input-content textarea{
+    background-color: white;
+    margin-left: 5px;
+    height: 150px;
+    padding: 5px;
+}
+.request-appointment-content .input-content textarea:focus{
+    outline: none;
+}
+.request-appointment-content  .input-time{
+    position: relative;
+}
+.input-time .date{
+    background-color: white;
+    position:absolute;
+    width: 300px;
+    top: 100%;
+    left: 20%;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)
+}
+.request-appointment-content  .input-time img{
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+}
+.request-appointment-content  .input-time ion-icon{
+    color: gray;
+    font-size: 30px;
+    cursor:pointer ;
+}
+
+.request-appointment .container-btn{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    height: 70px;
+}
+.request-appointment .container-btn .btn-book, .request-appointment .container-btn .btn-cancel{
+    height: 50px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    color: white;
+    border-radius: 10px;
+    font-size: 25px;
+}
+.request-appointment .container-btn .btn-book{
+    background-color: #707070;
+    width: 100px;
+    margin-right: 10px;
+}
+.request-appointment .container-btn .btn-cancel{
+    background-color: #C42D0D;
+    width: 70px;
+    border:2px solid #1E3A28;
+    margin-left: 10px;
+}

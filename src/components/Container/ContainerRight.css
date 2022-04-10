@@ -1,0 +1,175 @@
+ .container-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 10px;
+    padding-right: 10px;
+    flex: 0.75;
+ }
+.container-right .box{
+    width: 100%;
+    min-height: 500px;
+    background-color: white;
+    border:2px solid #e2e0e2;
+    display: flex;
+    flex-direction: column;
+    border-collapse: collapse;
+    border-radius: 12px;
+    margin-bottom: 15px;
+}
+.news{
+    width: 100%;
+    flex:1;
+    overflow: hidden;
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    overflow-y: scroll;
+}
+.news::-webkit-scrollbar{
+    display: none;
+}
+.news-form{
+    margin-bottom: 15px;
+
+}
+   
+.news-data{
+    color:#1E3A28;
+    font-size: 19px;
+    font-family: 'Times New Roman', Times, serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.news-form a{
+    color:#1E3A28;
+    text-decoration: none;
+    font-weight: bold;
+}
+.news-form a:hover{
+    color:#1E3A28;
+}
+.container-right .box .box-header{
+    width: 100%;
+    height: 60px;
+    background-color: #78A570;
+    display: flex;
+    padding-left: 20px;
+    border-radius: 12px;
+    align-items: center;
+    margin-top:-1px;
+}
+.container-right .box .box-header .box-header-title{
+    color:#1E3A28;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: bold;
+
+}
+.appointment{
+    width: 100%;
+    flex: 1;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+.appointment .appointment-box{
+    width: 900px;
+    height: 350px;
+    overflow-x: auto;
+    overflow-y: auto;
+    white-space: nowrap;
+    padding: 15px;
+    align-items: center;
+
+}
+.appointment .appointment-box::-webkit-scrollbar-thumb{
+    border-radius: 10px;
+    background-color: gray;
+}
+.appointment .appointment-box::-webkit-scrollbar{
+    height: 10px;
+}
+  /* Track */
+.appointment .appointment-box::-webkit-scrollbar-track {
+    box-shadow: inset 0 0 3px grey; 
+    border-radius: 10px;
+}
+
+.appointment .appointment-data{
+    height: 300px;
+    width: 300px;
+    margin-right: 15px;
+    border-radius: 12px;
+    display: inline-block;
+    overflow: hidden;
+}
+.appointment .appointment-empty{
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.appointment .appointment-empty p{
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    font-weight: bold;
+    font-style: italic;
+    color: #6D5D5D;
+}
+.appointment .appointment-data .appointment-date{
+    width:100%;
+    height:70;
+    display:flex;
+    flex-direction:column;
+    justify-content: center;
+    align-items:center;
+    padding-top: 20px;
+}
+.appointment .appointment-data .appointment-date p{
+    color: #1E3A28;
+    font-family: 'Times New Roman', Times, serif;
+    line-height: 20px;
+    padding-bottom: 3px;
+}
+.appointment .appointment-data .appointment-date p:first-child{
+    font-style: italic;
+    font-weight: 600;
+    font-size: 40px;
+}
+.appointment .appointment-data .appointment-date p:last-child{
+    font-size: 25px;
+}
+.appointment .appointment-data .appointment-time,.appointment .appointment-data .appointment-infor{
+    width:100%;
+}
+.appointment .appointment-data .appointment-time{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100px;
+}
+.appointment .appointment-data .appointment-time p{
+    color: #1E3A28;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 35px;
+    font-weight: 600;
+}
+.appointment .appointment-data .appointment-infor{
+    padding-left: 20px;
+    height: 125px;
+}
+.appointment .appointment-data .appointment-infor p{
+    color: #1E3A28;
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    line-height: 20px;
+}

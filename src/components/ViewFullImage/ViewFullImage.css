@@ -1,0 +1,28 @@
+.container-view-images{
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    left: 0px;
+    top: 0px;
+    background-color: rgba(0,0,0,0.9);
+    display: flex;  
+    align-items: center;
+    justify-content: center;
+    overflow:auto;
+}
+.container-view-images img{
+    transition: 0.3s;
+}
+.container-view-images ion-icon{
+    font-size: 50px;
+    color: white;
+    font-weight: bold;
+    border-radius: 10px;
+    position:absolute;
+    top: 0px;
+    right: 0px;
+    cursor: pointer;
+}
+.container-view-images ion-icon:hover{
+    opacity: 0.9;
+}

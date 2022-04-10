@@ -1,0 +1,24 @@
+
+.e-schedule .e-appointment-details{
+    padding: 0 !important;
+
+
+}
+.e-schedule .e-appointment-details div:first-child{
+    min-height: 400px;
+}
+.template-wrap{
+    padding-left: 10px;
+    padding-right: 15px;
+    padding-top: 7px;
+    padding-bottom: 10px;
+}
+.template-wrap p{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    line-height: 1.0;
+    color: #1E3A28;
+}
+.template-wrap .subject{
+    font-weight: bold;
+}

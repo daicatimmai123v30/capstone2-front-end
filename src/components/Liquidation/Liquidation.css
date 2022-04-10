@@ -1,0 +1,256 @@
+.button-post .btn-post {
+  float: right;
+  margin: 20px 25px 0 0;
+  height: 40px;
+}
+
+.create-post,
+.edit-post {
+  font-family: "Roboto";
+  width: 600px;
+  height: 1000px;
+  margin: 1px auto 0;
+  /* display: block; */
+  /* background:#FFF; */
+  padding: 0px 10px 50px 50px;
+}
+
+.create-post .group,
+.edit-post .group {
+  position: relative;
+  margin-bottom: 25px;
+}
+
+.create-post input,
+.edit-post input {
+  font-size: 18px;
+  padding: 10px 10px 10px 5px;
+  display: block;
+  width: 422px;
+  border: none;
+  border-bottom: 1px solid #757575;
+}
+
+.create-post input:focus,
+.edit-post input:focus {
+  outline: none;
+}
+
+/* LABEL */
+.create-post label,
+.edit-post label {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+  position: absolute;
+  pointer-events: none;
+  left: 5px;
+  top: 8px;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+/* active state */
+.create-post input:focus ~ label,
+.create-post input:valid ~ label,
+.edit-post input:focus ~ label,
+.edit-post input:valid ~ label {
+  top: -10px;
+  font-size: 14px;
+  color: #78a570;
+}
+
+/* BOTTOM BARS */
+.create-post .bar,
+.edit-post .bar {
+  position: relative;
+  display: block;
+  width: 420px;
+}
+
+.create-post .bar:before,
+.create-post .bar:after,
+.edit-post .bar:before,
+.edit-post .bar:after {
+  content: "";
+  height: 1px;
+  width: 0;
+  bottom: 1px;
+  position: absolute;
+  background: #52ae6e;
+  transition: 0.2s ease all;
+  -moz-transition: 0.2s ease all;
+  -webkit-transition: 0.2s ease all;
+}
+
+.create-post .bar:before,
+.edit-post .bar:before {
+  left: 50%;
+}
+
+.create-post .bar:after,
+.edit-post .bar:after {
+  right: 50%;
+}
+
+/* active state */
+.create-post input:focus ~ .bar:before,
+.create-post input:focus ~ .bar:after,
+.edit-post input:focus ~ .bar:before,
+.edit-post input:focus ~ .bar:after {
+  width: 50%;
+}
+
+/* HIGHLIGHTER  */
+.create-post .highlight,
+.edit-post .highlight {
+  position: absolute;
+  height: 60%;
+  width: 400px;
+  top: 25%;
+  left: 0;
+  pointer-events: none;
+  opacity: 0.5;
+}
+
+/* active state */
+.create-post input:focus ~ .highlight,
+.edit-post input:focus ~ .highlight {
+  -webkit-animation: inputHighlighter 0.3s ease;
+  -moz-animation: inputHighlighter 0.3s ease;
+  animation: inputHighlighter 0.3s ease;
+}
+
+/* ANIMATIONS */
+@-webkit-keyframes inputHighlighter {
+  from {
+    background: #52ae61;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@-moz-keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+@keyframes inputHighlighter {
+  from {
+    background: #5264ae;
+  }
+  to {
+    width: 0;
+    background: transparent;
+  }
+}
+
+/* HÌNH ẢNH */
+.img-product .media {
+  border: 2px dashed gray;
+  border-radius: 10px;
+  width: 425px;
+  height: 160px;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+}
+
+.img-product .media ion-icon {
+  border: 0px;
+  width: 80px;
+  height: 80px;
+}
+
+.img-product .media button {
+  width: 100px;
+  height: 50px;
+  background-color: white;
+  color: black;
+  border: 1px solid gray;
+  border-radius: 10px;
+}
+
+.img-product .media button:hover,
+.img-product .media:hover,
+.img-product .list-media-liquidation .item-add:hover {
+  background-color: #f6f6f7;
+}
+
+.img-product .list-media-liquidation {
+  width: 400px;
+  height: 350px;
+  padding: 20px;
+}
+
+.img-product .list-media-liquidation .item-add {
+  width: 150px;
+  height: 150px;
+  border: 2px dashed gray;
+  border-radius: 10px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  cursor: pointer;
+  float: left;
+  margin: 10px;
+}
+
+.img-product .list-media-liquidation .item-add ion-icon {
+  width: 40px;
+  height: 40px;
+  border: 0px;
+}
+
+.img-product .list-media-liquidation .item {
+  width: 150px;
+  height: 150px;
+  border-radius: 10px;
+  overflow: hidden;
+  float: left;
+  margin: 15px;
+}
+
+.img-product .add-image {
+  color: #999;
+  font-size: 18px;
+  font-weight: normal;
+}
+
+.content-post {
+  margin: 10px 20px;
+}
+
+.content-post-detail {
+  margin-bottom: 20px;
+  border-bottom: 1px solid rgb(219, 219, 219);
+  border-radius: 10px;
+  padding: 8px;
+}
+
+.slide-image img {
+  height: 500px;
+}
+
+.btn-details {
+  border: 1px solid rgba(245, 222, 179, 0);
+  background-color: rgba(245, 222, 179, 0);
+  cursor: pointer;
+  text-decoration: underline;
+  font-style: italic;
+  color: rgb(51, 51, 51);
+}
+
+.infor-product ion-icon {
+  cursor: pointer;
+  /* font-size: 90%; */
+}

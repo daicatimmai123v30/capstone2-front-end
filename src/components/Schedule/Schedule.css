@@ -1,0 +1,47 @@
+
+.container-right .box .view-schedule{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: row;
+
+}
+.container-right .box .view-schedule .schedule{
+    flex: 1;
+    height: 100%;
+}
+.container-right .box .view-schedule .treeview-component{
+    flex: 0.2;
+    height: 100%;
+    background-color: #fafafa;
+    position: relative;
+}
+.container-right .box .view-schedule .treeview-component .treeview-component-title{
+    width: 100%;
+    height: 45px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 2px solid #e2e0e2;
+}
+.container-right .box .view-schedule .treeview-component .treeview-component-title span{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+
+}
+.container-right .box .view-schedule .treeview-component .treeview-component-bottom{
+    height: 50px;
+    width: 100%;
+    position: absolute;
+    bottom: 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.container-right .box .view-schedule .treeview-component .treeview-component-bottom button{
+    background-color: #D3F0D3;
+    width: 100px;
+    height: 50px;
+    border-radius: 10px;
+    border:1px solid #1E3A28 ;
+}
