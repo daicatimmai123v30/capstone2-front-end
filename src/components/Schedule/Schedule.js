@@ -49,9 +49,9 @@ const Schedule =()=>{
             const newCount = count+1;
             setCount(newCount)
             scheduleObj.current.addEvent(eventData)
-            // const newDataSource= dataSource;
-            // newDataSource.push(eventData)
-            // setDatasource(newDataSource)
+            const newDataSource= dataSource;
+            newDataSource.push(eventData)
+            setDatasource(newDataSource)
         }
         
         

@@ -61,14 +61,14 @@ const ContainerLeft = () => {
                 <ion-icon name="calendar-outline" style={{ fontSize: '40px', color: '#1E3A28' }}></ion-icon>
               </button>
             ) : null}
-            {user.user.role === "ADMIN" ? (
+            {/* {user.user.role === "ADMIN" ? (
               <button className="btn-process" name="schedule" onClick={() => history.push('/Schedule')}>
                 <label className="btn-label">
                   Thống kế
                 </label>
                 <ion-icon name="calendar-outline" style={{ fontSize: '40px', color: '#1E3A28' }}></ion-icon>
               </button>
-            ) : null}
+            ) : null} */}
             {user.user.role === "USER" || user.user.role === "ADMIN" ? (
               <button className="btn-process" onClick={() => history.push('/list-doctor')}>
                 <label className="btn-label">

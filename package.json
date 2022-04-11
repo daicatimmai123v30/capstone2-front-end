@@ -5,6 +5,7 @@
   "dependencies": {
     "@devexpress/dx-react-chart": "^3.0.2",
     "@devexpress/dx-react-chart-material-ui": "^3.0.2",
+    "@devexpress/dx-react-scheduler-material-ui": "^3.0.2",
     "@syncfusion/ej2-react-navigations": "^19.3.54",
     "@syncfusion/ej2-react-schedule": "^19.3.53",
     "@testing-library/jest-dom": "^5.14.1",

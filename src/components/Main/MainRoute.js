@@ -61,7 +61,7 @@ const Mainrouter = () => {
     const token = localStorage.getItem(TOKEN);
     try {
       setAuthToken(token);
-      const response = await axios.get(`${API_URL}/api/Account`, { test: 2 });
+      const response = await axios.get(`${API_URL}/api/Account`);
       if (response.data.success) {
         dispatch({ type: USER_LOAD, payload: response.data.user });
         const newResponse = await axios.get(`${API_URL}/api/Pet/list-pet`);

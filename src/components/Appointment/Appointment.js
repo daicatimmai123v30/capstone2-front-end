@@ -51,7 +51,6 @@ const Appointment =()=>{
             setAuthToken(localStorage.getItem(TOKEN))
             const response = await axios.get(`${API_URL}/api/Appointment`);
             if(response.data.success){
-                
                 const appointments = response.data.appointments.map((appointment,index) =>{
                     return{
                         _id:appointment._id,
@@ -61,7 +60,7 @@ const Appointment =()=>{
                         isBlock:true,
                         Location:'',
                         status:appointment.status,
-                        Subject:appointment.idPet.namePet,
+                        Subject:appointment?.idPet?.namePet,
                         doctor:appointment.idDoctor?._id
                     }
                 })
@@ -74,6 +73,7 @@ const Appointment =()=>{
     useEffect(()=>{
         loadAppointments();
     },[])
+
     return (
         <div className="main">
             {chat.visibleChat?(<Chat></Chat>):null}
