@@ -30,14 +30,14 @@ export const WAIT_CALLING = "WAIT_CALLING"
 export const TOKEN ='TOKEN';
 export const UNIQUE_CHAT="UNIQUE_CHAT";
 export const UNIQUE_ROOM_CHAT="UNIQUE_ROOM_CHAT";
-export const API_URL='http://localhost:4444'
+export const API_URL='https://back-end-artemis.herokuapp.com'
 // http://localhost:4444
 // https://capstone-2-backend-app.herokuapp.com
 export const API_URL_SPRING =
   "https://be-project-final.herokuapp.com/api/auth/campaign";
 
 // Socket config
-export const socket =IO('http://localhost:4441',{
+export const socket =IO('https://socket-artemis.herokuapp.com',{
     forceNew:true,
 })
 socket.on('connect',()=>console.log('connected'))

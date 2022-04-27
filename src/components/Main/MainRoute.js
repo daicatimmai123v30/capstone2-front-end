@@ -45,7 +45,7 @@ import VideoCall from "../VideoCall/VideoCall";
 import Peer from "simple-peer";
 
 import io from "socket.io-client";
-const socket = io.connect("http://localhost:4441");
+const socket = io.connect("https://socket-artemis.herokuapp.com");
 const Mainrouter = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
