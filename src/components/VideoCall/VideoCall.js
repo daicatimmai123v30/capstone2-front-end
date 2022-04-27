@@ -1,6 +1,6 @@
 import "./VideoCall.css";
 import io from "socket.io-client";
-import React, { useEffect, useRef, useState  } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { useHistory } from "react-router-dom";
 import Peer from "simple-peer";
 
@@ -18,19 +18,20 @@ export default function VideoCall(props) {
   const userVideo = useRef();
   const connectionRef = useRef();
   useEffect(() => {
-    navigator.mediaDevices.getUserMedia({ video: true, audio: true }).then((stream) => {
-			setStream(stream)
-				myVideo.current.srcObject = stream
-		})
+    navigator.mediaDevices
+      .getUserMedia({ video: true, audio: true })
+      .then((stream) => {
+        setStream(stream);
+        myVideo.current.srcObject = stream;
+      });
     // socket.on("callUser", (data) => {
     //   setReceivingCall(true);
     //   setCaller(data.from);
     //   setCallerSignal(data.signal);
     // });
-    const peer = window?.peer
+    const peer = window?.peer;
     peer?.on("stream", (stream) => {
       userVideo.current.srcObject = stream;
-      
     });
   }, []);
 
@@ -86,23 +87,18 @@ export default function VideoCall(props) {
     <div className="container-video-call">
       <div id="videoCall">
         <div className="remote-stream">
-        <video playsInline ref={userVideo} autoPlay />
-          {/* {callAccepted && !callEnded ? (
-            <video playsInline ref={userVideo} autoPlay />
-          ) : null} */}
+          <video playsInline ref={userVideo} autoPlay />
         </div>
         <div className="local-stream">
           {stream && <video playsInline muted ref={myVideo} autoPlay />}
         </div>
         <div className="controls">
-          {/* <ion-icon name="call"></ion-icon> */}
-          {/* {callAccepted && !callEnded ? (
-            
-          ) : (
-            <ion-icon name="call" onClick={() => callUser(idToCall)}></ion-icon>
-          )}
-          {idToCall} */}
-          <ion-icon name="call" onClick={()=>{window.destroy()}}></ion-icon>
+          <ion-icon
+            name="call"
+            onClick={() => {
+              window.destroy();
+            }}
+          ></ion-icon>
         </div>
       </div>
     </div>

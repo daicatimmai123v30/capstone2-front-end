@@ -9,15 +9,16 @@
     height: 93.5%;
     position: relative;
     border: solid 1px rgba(0, 0, 0, 0);
-    background-color: rgba(0,0,0,0.3);
+    /* background-color: rgba(0,0,0,0.3); */
     margin: 1.5% auto;
     text-align: center;
   }
 
-  #videoCall .remote-stream {
+  #videoCall .remote-stream video{
     width: 100%;
-    height: 100%;
+    height: 50%;
     z-index: -1;
+    padding-bottom: 400px;
   }
   #videoCall .controls {
     /* width: 25%;
