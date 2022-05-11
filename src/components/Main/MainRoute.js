@@ -45,6 +45,8 @@ import VideoCall from "../VideoCall/VideoCall";
 import Peer from "simple-peer";
 
 import io from "socket.io-client";
+import Documents from "../Documents/Documents";
+import ManageAccount from "../ManageAccount/ManageAccount";
 const socket = io.connect("https://socket-artemis.herokuapp.com");
 const Mainrouter = () => {
   const dispatch = useDispatch();
@@ -199,6 +201,8 @@ const Mainrouter = () => {
             <>
               <Route path="/Create-facility" component={CreateFacility} />
               <Route path="/Create-doctor" component={CreateDoctor} />
+              <Route path="/Documents" component={Documents}/>
+              <Route path="/Manage-account" component={ManageAccount}/>
             </>
           ) : null}
         </>

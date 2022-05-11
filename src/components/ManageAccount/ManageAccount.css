@@ -1,0 +1,6 @@
+.manage-account td ion-icon{
+    cursor: pointer;
+}
+.manage-account ul li a{
+    color: rgb(116, 116, 116);
+}

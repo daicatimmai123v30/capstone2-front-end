@@ -92,7 +92,7 @@ const ContainerLeft = () => {
               </label>
               <ion-icon name="home-outline" style={{ fontSize: '40px', color: '#1E3A28' }}></ion-icon>
             </button>
-            <button className="btn-process" name="document">
+            <button className="btn-process" name="document" onClick={() => history.push('/Documents')}>
               <label className="btn-label">
                 Tài liệu
               </label>
@@ -108,7 +108,7 @@ const ContainerLeft = () => {
                 style={{ fontSize: "40px", color: "#1E3A28" }}
               ></ion-icon>
             </button>
-            {user.user.role === "USER" || user.user.role === "ADMIN" ? (
+            {user.user.role === "DOCTOR" || user.user.role === "ADMIN" ? (
               <button
                 className="btn-process"
                 onClick={() => history.push("/Statistical")}
@@ -116,6 +116,18 @@ const ContainerLeft = () => {
                 <label className="btn-label">Thống kê</label>
                 <ion-icon
                   name="analytics-outline"
+                  style={{ fontSize: "40px", color: "#1E3A28" }}
+                ></ion-icon>
+              </button>
+            ) : null}
+            {user.user.role === "ADMIN" ? (
+              <button
+                className="btn-process"
+                onClick={() => history.push("/Manage-account")}
+              >
+                <label className="btn-label">Quản lý tài khoản</label>
+                <ion-icon
+                  name="people-circle-outline"
                   style={{ fontSize: "40px", color: "#1E3A28" }}
                 ></ion-icon>
               </button>
