@@ -12,7 +12,8 @@ import {
   USER_LOAD,
   ACCEPT_CALLING,
   REFUSE_CALLING,
-  WAIT_CALLING
+  WAIT_CALLING,
+  socket
 } from "../../actions/types";
 import Home from "../Home/Home";
 import ListDoctor from "../ListDoctor/ListDoctor";
@@ -42,12 +43,14 @@ import setAuthToken from "../../utils/setAuthToken";
 import { useDispatch, useSelector } from "react-redux";
 import LiquidationDetails from "../LiquidationDetails/LiquidationDetails";
 import VideoCall from "../VideoCall/VideoCall";
+import Search from "../Search/Search";
 import Peer from "simple-peer";
 
-import io from "socket.io-client";
+// import io from "socket.io-client";
 import Documents from "../Documents/Documents";
 import ManageAccount from "../ManageAccount/ManageAccount";
-const socket = io.connect("https://socket-artemis.herokuapp.com");
+// const socket = io.connect("https://socket-artemis.herokuapp.com");
+
 const Mainrouter = () => {
   const dispatch = useDispatch();
   const user = useSelector((state) => state.user);
@@ -174,11 +177,11 @@ const Mainrouter = () => {
       ) : null}
       <Route path="/Signin" component={Signin} />
       <Route path="/Signup" component={Signup} />
+      <Route path="/Information" component={Information} />
+      <Route path="/VerifyOTP" component={VerifyOTP} />
       <Route path="/Home" >
         <Home callUser={callUser} answerCall={answerCall} leaveCall={leaveCall} nameCaller={nameCaller}></Home>
       </Route>
-      <Route path="/Information" component={Information} />
-      <Route path="/VerifyOTP" component={VerifyOTP} />
       {user.isAuthentication ? (
         <>
           <Route path="/List-doctor" component={ListDoctor} />
@@ -197,16 +200,18 @@ const Mainrouter = () => {
           <Route path="/Liquidation-details/:slug" component={LiquidationDetails} />
           <Route path="/Statistical" component={Statistical} />
           <Route path="/Video-call" component={VideoCall} />
+          <Route path="/Search" component={Search} />
+          <Route path="/Documents" component={Documents}/>
           {user.user.role === "ADMIN" ? (
             <>
               <Route path="/Create-facility" component={CreateFacility} />
               <Route path="/Create-doctor" component={CreateDoctor} />
-              <Route path="/Documents" component={Documents}/>
               <Route path="/Manage-account" component={ManageAccount}/>
             </>
           ) : null}
         </>
       ) : null}
+      
       <Redirect to="/Home" />
     </Switch>
   );

@@ -3,7 +3,6 @@ import ContainerLeft from "../Container/ContainerLeft";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Statistical.css";
-// import BarChart from 'react-bar-chart';
 import { Animation } from "@devexpress/dx-react-chart";
 import {
   Chart,

@@ -1,0 +1,92 @@
+
+/* .container-right{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    padding-top: 20px;
+    padding-bottom: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    flex: 0.65;
+}
+.container-right .box{
+    min-height: 700px;
+} */
+.search{
+    width: 100%;
+    flex:1;
+    overflow: hidden;
+    padding-left:15px;
+    padding-right:15px;
+    margin-bottom: 15px;
+    margin-top: 15px;
+    overflow-y: scroll;
+}
+.search::-webkit-scrollbar{
+    display: none;
+}
+.search-form{
+    margin-bottom: 50px;
+    display: flex;
+    flex-direction: row;
+    border-bottom:1.5px solid #707070 ;
+    padding-left: 20px;
+    padding-bottom: 10px;
+    
+}
+   
+.search-data{
+    color:#1E3A28;
+    font-size: 19px;
+    font-family: 'Times New Roman', Times, serif;
+    display: -webkit-box;
+    -webkit-line-clamp: 5;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.search-form a{
+    color:#1E3A28;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 30px;
+    font-family: 'Times New Roman', Times, serif;
+    cursor: pointer;
+    height: 50px;
+    width: 400px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+.search-form a:hover{
+    color:#1E3A28;
+}
+.search-form .pet-avatar{
+    width: 150px;
+    height: 150px;
+    border-radius: 15px;
+}
+.search-form  label{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 21px;
+    cursor: pointer;
+    height: 50px;
+    width: 400px;
+    display: inline-block;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    color:#1E3A28;
+}
+.owners-form p{
+    font-size: 21px;
+    font-weight: bold;
+}
+.owners-form p .span-priceProduct, .owners-form p .span-amountProduct{
+    font-weight: normal;
+}
+.search .span-role{
+    font-size: 19px;
+    color: gray;
+}

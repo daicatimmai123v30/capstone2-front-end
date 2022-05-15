@@ -18,7 +18,7 @@ npm i
 - react-redux
 - react-router-dom
 - react-scripts
-- redux
+- reduxư
 - redux-persist
 - socket.io-client
 - web-vitals

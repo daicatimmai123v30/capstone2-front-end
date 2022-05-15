@@ -8,6 +8,7 @@ import axios from 'axios'
 import {API_URL, OPEN_CHAT} from '../../actions/types'
 const Header = () => {
     const user = useSelector(state => state.user);
+    const [textSearch,setTextSearch] = useState('');
     const distpatch =useDispatch();
     const [listChat,setListChat]=useState([]);
     const [dropView,setDropView]=useState({
@@ -89,8 +90,11 @@ const Header = () => {
                 </button>
             </div>
             <div className="view-header-home">
-                <input className="header-search" placeholder="Tìm thú cưng hoặc bác sĩ"/>
-                <button className="btn">
+                <input className="header-search" defaultValue={textSearch} onChange={(event)=>setTextSearch(event.target.value)} placeholder="Tìm thú cưng hoặc bác sĩ"/>
+                <button className="btn" onClick={()=>{
+                    history.push(`/Search?query=${textSearch}`)
+                    window.location.reload();
+                }}>
                     <img className="header-icon-search" src={Search}/>
                 </button>
             </div>
