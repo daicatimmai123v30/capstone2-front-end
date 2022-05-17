@@ -63,7 +63,9 @@ const ListDocuments = () => {
                       <th scope="col">Tiêu đề</th>
                       <th scope="col">Mô tả</th>
                       <th scope="col">Xem chi tiết</th>
-                      <th scope="col">Chỉnh sửa</th>
+                      {user.role === "ADMIN" ? (
+                        <th scope="col">Chỉnh sửa</th>
+                      ) : null}
                     </tr>
                   </thead>
                   {documents.map((value, index) => (
@@ -82,9 +84,11 @@ const ListDocuments = () => {
                             <ion-icon name="eye-outline"></ion-icon>
                           </a>
                         </td>
-                        <td>
-                          <ion-icon name="create-outline"></ion-icon>
-                        </td>
+                        {user.role === "ADMIN" ? (
+                          <td>
+                            <ion-icon name="create-outline"></ion-icon>
+                          </td>
+                        ) : null}
                       </tr>
                     </tbody>
                   ))}
