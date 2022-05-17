@@ -14,6 +14,7 @@ import {API_URL} from '../../actions/types'
 
 export default function Documents() {
   const {user} = useSelector(state=>state.user);
+  console.log("user")
   
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()

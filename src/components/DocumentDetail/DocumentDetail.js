@@ -33,32 +33,45 @@ const DocumentDetail = () => {
     },[])
   return (
     <div className="main">
-            {chat.visibleChat?(<Chat></Chat>):null}
-            <Header></Header>
-            <div className="body">
-                <div className="body-container">
-                    <ContainerLeft/>
-                    <div className="container-right">
-                        <div className="box box-document-detail">
-                            <div className="document-detail">
-                                <div className="title-document">
-                                    <h3>Tiêu đề: </h3>
-                                    <span>{data.title}</span>
-                                </div>
-                                <div className="description-document">
-                                    <h4>Mô tả: </h4>
-                                    <span>{data.description}</span>
-                                </div>
-                                <div dangerouslySetInnerHTML={{__html:data.content}}/>
-                            </div>
-                        </div>
-                    </div>
-                </div>  
+      {chat.visibleChat ? <Chat></Chat> : null}
+      <Header></Header>
+      <div className="body">
+        <div className="body-container">
+          <ContainerLeft />
+          <div className="container-right">
+            <div className="box box-document-detail">
+              <div className="document-detail">
+                <div className="title-document">
+                  {/* <h3>Tiêu đề: </h3> */}
+                  {/* <h1> */}
+                    <span style={{ fontSize: "30px", color: "black" }}>
+                      {data.title}
+                    </span>
+                  {/* </h1> */}
+                </div>
+                <div className="description-document">
+                  {/* <h4>Mô tả: </h4> */}
+                  <span
+                    style={{
+                      color: "rgb(184, 184, 184)",
+                      fontStyle: "italic",
+                      fontSize: "80%",
+                      marginBottom: "10px"
+                    }}
+                  >
+                    {data.description}
+                  </span>
+                </div>
+                <div dangerouslySetInnerHTML={{ __html: data.content }} />
+              </div>
             </div>
-
-            <Footer></Footer>
+          </div>
         </div>
-  )
+      </div>
+
+      <Footer></Footer>
+    </div>
+  );
 }
 
 export default DocumentDetail

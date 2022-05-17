@@ -20,8 +20,8 @@
 }
 .document-detail .title-document span, .document-detail .description-document span{
     font-size: 19px;
-    margin-left: 10px;
+    /* margin-left: 10px; */
 }
 .document-detail .description-document h4{
-    color: gray;
+    color: rgb(184, 184, 184);
 }

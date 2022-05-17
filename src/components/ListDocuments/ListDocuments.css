@@ -1,98 +1,90 @@
+.ListDocuments {
+  width: 100%;
+  flex: 1;
+  overflow: hidden;
+  padding-left: 15px;
+  padding-right: 15px;
+  margin-bottom: 15px;
+  margin-top: 15px;
+  overflow-y: scroll;
+}
+.ListDocuments::-webkit-scrollbar {
+  display: none;
+}
+.ListDocuments-form {
+  display: flex;
+  justify-content: space-between;
+  margin-top: 10px;
+  border-bottom: 1.5px solid #707070;
+  padding-left: 20px;
+  padding-bottom: 10px;
+}
 
-/* .container-right{
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    padding-top: 20px;
-    padding-bottom: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
-    flex: 0.65;
-} 
-.container-right .box{
-    min-height: 700px;
-} */
-.ListDocuments{
-    width: 100%;
-    flex:1;
-    overflow: hidden;
-    padding-left:15px;
-    padding-right:15px;
-    margin-bottom: 15px;
-    margin-top: 15px;
-    overflow-y: scroll;
+.ListDocuments-data {
+  color: #1e3a28;
+  font-size: 19px;
+  font-family: "Times New Roman", Times, serif;
+  display: -webkit-box;
+  -webkit-line-clamp: 5;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.ListDocuments::-webkit-scrollbar{
-    display: none;
+.ListDocuments-form a {
+  color: #1e3a28;
+  text-decoration: none;
+  font-weight: bold;
+  font-size: 30px;
+  font-family: "Times New Roman", Times, serif;
+  cursor: pointer;
+  height: 50px;
+  width: 400px;
+  display: inline-block;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
-.ListDocuments-form{
-    /* margin-bottom: 50px; */
-    display: flex;
-    justify-content: space-between;
-    margin-top: 10px;
-    border-bottom:1.5px solid #707070 ;
-    padding-left: 20px;
-    padding-bottom: 10px;
+.ListDocuments button {
+  border: 1px solid #78a570;
+  border-radius: 5px;
+  background-color: #78a570;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  padding: 5px;
+  transition: 0.5s;
 }
-   
-.ListDocuments-data{
-    color:#1E3A28;
-    font-size: 19px;
+.ListDocuments button:hover {
+  background-color: rgb(184, 184, 184);
+  color: black;
+  transition: 0.5s;
+}
+.ListDocuments .form-word label {
+  font-size: 19px;
+  font-family: "Times New Roman", Times, serif;
+}
+.ListDocuments .form-word .form-input input {
+  height: 35px;
+}
+.ListDocuments-form a:hover {
+  color: #1e3a28;
+}
+.ListDocuments-form span {
+  font-size: 19px;
+  font-family: "Times New Roman", Times, serif;
+  color: gray;
+}
+.box-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.box-header .button-document {
+  margin-right: 30px;
+}
+.ListDocuments table thead tr th{
     font-family: 'Times New Roman', Times, serif;
-    display: -webkit-box;
-    -webkit-line-clamp: 5;
-    -webkit-box-orient: vertical;
-    overflow: hidden;
-    text-overflow: ellipsis;
+    font-size: 115%;
 }
-.ListDocuments-form a{
-    color:#1E3A28;
-    text-decoration: none;
-    font-weight: bold;
-    font-size: 30px;
-    font-family: 'Times New Roman', Times, serif;
+.ListDocuments tbody ion-icon{
     cursor: pointer;
-    height: 50px;
-    width: 400px;
-    display: inline-block;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-}
-.ListDocuments button{
-    border: 1px solid #78A570;
-    border-radius: 5px;
-    background-color: #78A570;
-    color: rgb(255, 255, 255);
-    margin-top: 10px;
-    padding: 5px;
-    transition: 0.5s;
-}
-.ListDocuments button:hover{
-    background-color: rgb(184, 184, 184);
-    color: black;
-    transition: 0.5s;
-}
-.ListDocuments .form-word label{
-    font-size: 19px;
-    font-family: 'Times New Roman', Times, serif;
-}
-.ListDocuments .form-word .form-input input{
-    height: 35px;
-}
-.ListDocuments-form a:hover{
-    color:#1E3A28;
-}
-.ListDocuments-form span{
-    font-size: 19px;
-    font-family: 'Times New Roman', Times, serif;
-    color: gray;
-}
-.box-header{
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-}
-.box-header .button-document{
-    margin-right: 30px;
 }
