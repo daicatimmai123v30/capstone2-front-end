@@ -1,36 +1,37 @@
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
-import { useDispatch,useSelector } from 'react-redux';
-import { useHistory } from 'react-router';
-import { API_URL, TOKEN } from '../../actions/types';
-import setAuthToken from '../../utils/setAuthToken';
-import Chat from '../Chat/Chat';
-import ContainerLeft from '../Container/ContainerLeft';
-import Footer from '../Footer/Footer';
-import Header from '../Header/Header';
+import axios from "axios";
+import React, { useEffect, useState } from "react";
+import { useDispatch, useSelector } from "react-redux";
+import { useHistory } from "react-router";
+import { API_URL, TOKEN } from "../../actions/types";
+import setAuthToken from "../../utils/setAuthToken";
+import Chat from "../Chat/Chat";
+import ContainerLeft from "../Container/ContainerLeft";
+import Footer from "../Footer/Footer";
+import Header from "../Header/Header";
+import moment from "moment";
 
-import './ListDocuments.css';
+import "./ListDocuments.css";
 
 const ListDocuments = () => {
-    const history = useHistory();
-    const chat = useSelector(state => state.chat);
-    const {user} = useSelector(state => state.user);
-    console.log(user.role)
-    const dispatch = useDispatch();
-    const [documents,setDocuments] = useState([]);
-    const getDocuments = async() =>{
-        try {
-            const response = await axios.get(`${API_URL}/api/Document`);
-            if(response.data.success){
-                setDocuments(response.data.documents);
-            }
-        } catch (error) {
-            alert(error.toString());
-        }
+  const history = useHistory();
+  const chat = useSelector((state) => state.chat);
+  const { user } = useSelector((state) => state.user);
+  console.log(user.role);
+  const dispatch = useDispatch();
+  const [documents, setDocuments] = useState([]);
+  const getDocuments = async () => {
+    try {
+      const response = await axios.get(`${API_URL}/api/Document`);
+      if (response.data.success) {
+        setDocuments(response.data.documents);
+      }
+    } catch (error) {
+      alert(error.toString());
     }
-    useEffect(()=>{
-        getDocuments();
-    },[])
+  };
+  useEffect(() => {
+    getDocuments();
+  }, []);
   return (
     <div className="main">
       {chat.visibleChat ? <Chat></Chat> : null}
@@ -66,6 +67,7 @@ const ListDocuments = () => {
                       {user.role === "ADMIN" ? (
                         <th scope="col">Chỉnh sửa</th>
                       ) : null}
+                      <th>Ngày tạo</th>
                     </tr>
                   </thead>
                   {documents.map((value, index) => (
@@ -89,6 +91,7 @@ const ListDocuments = () => {
                             <ion-icon name="create-outline"></ion-icon>
                           </td>
                         ) : null}
+                        <td>{moment(value.createdAt).format("DD/MM/YYYY")}</td>
                       </tr>
                     </tbody>
                   ))}
@@ -132,6 +135,6 @@ const ListDocuments = () => {
       <Footer></Footer>
     </div>
   );
-}
+};
 
-export default ListDocuments
+export default ListDocuments;
