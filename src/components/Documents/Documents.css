@@ -18,3 +18,10 @@
     color: black;
     transition: 0.5s;
 }
+.documents .form-word label{
+    font-size: 19px;
+    font-family: 'Times New Roman', Times, serif;
+}
+.documents .form-word .form-input input{
+    height: 35px;
+}

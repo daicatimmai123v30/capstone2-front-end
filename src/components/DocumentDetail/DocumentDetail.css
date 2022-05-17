@@ -1,0 +1,27 @@
+.container-right .box-document-detail {
+    /* border: 0px; */
+    background-color: #F5F3F5;
+    min-height: 550px;
+    background-color: white;
+    
+}
+.document-detail{
+    width: 100%;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    padding: 20px;
+}
+.document-detail .title-document, .document-detail .description-document{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+}
+.document-detail .title-document span, .document-detail .description-document span{
+    font-size: 19px;
+    margin-left: 10px;
+}
+.document-detail .description-document h4{
+    color: gray;
+}

@@ -37,6 +37,8 @@ import CreateDoctor from "../CreateDoctor/CreateDoctor";
 import Liquidation from "../Liquidation/Liquidation";
 // import LiquidationDetails from "../LiquidationDetails/LiquidationDetails";
 import Statistical from "../Statistical/Statistical";
+import ListDocuments from "../ListDocuments/ListDocuments";
+import DocumentDetail from "../DocumentDetail/DocumentDetail";
 // import Signup from "./users/Signup";
 
 import setAuthToken from "../../utils/setAuthToken";
@@ -201,7 +203,10 @@ const Mainrouter = () => {
           <Route path="/Statistical" component={Statistical} />
           <Route path="/Video-call" component={VideoCall} />
           <Route path="/Search" component={Search} />
+          <Route path="/DocumentDetail/:slug" component={DocumentDetail}/>
           <Route path="/Documents" component={Documents}/>
+          <Route path="/ListDocuments" component={ListDocuments}/>
+
           {user.user.role === "ADMIN" ? (
             <>
               <Route path="/Create-facility" component={CreateFacility} />

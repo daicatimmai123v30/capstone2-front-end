@@ -92,7 +92,7 @@ const ContainerLeft = () => {
               </label>
               <ion-icon name="home-outline" style={{ fontSize: '40px', color: '#1E3A28' }}></ion-icon>
             </button>
-            <button className="btn-process" name="document" onClick={() => history.push('/Documents')}>
+            <button className="btn-process" name="document" onClick={() => history.push('/ListDocuments')}>
               <label className="btn-label">
                 Tài liệu
               </label>

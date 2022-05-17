@@ -9,6 +9,8 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Documents.css";
 import { async } from "@firebase/util";
+import axios from "axios";
+import {API_URL} from '../../actions/types'
 
 export default function Documents() {
   const {user} = useSelector(state=>state.user);
@@ -17,17 +19,49 @@ export default function Documents() {
     EditorState.createEmpty()
   );
   const [text,setText] = useState('<p></p>');
- 
-  const getText=async()=>{
-    const string = "<p><strong>123123123213</strong></p>"+
-    "<h1><strong>asdadasd</strong></h1>";
-    const contentHTML = convertFromHTML(string);
-    const state = ContentState.createFromBlockArray(contentHTML.contentBlocks,contentHTML.entityMap);
-    console.log(state)
-    setEditorState(EditorState.createWithContent(state))
+  const [title,setTitle] = useState('');
+  const [description,setDescription] = useState('');
+
+  const onChange =(event)=>{
+    if(event.target.name == 'title'){
+      setTitle(event.target.value)
+    }else if(event.target.name == 'description'){
+      setDescription(event.target.value);
+    }
+  }
+  
+  // const getText=async()=>{
+  //   const string = "<p><strong>123123123213</strong></p>"+
+  //   "<h1><strong>asdadasd</strong></h1>";
+  //   const contentHTML = convertFromHTML(string);
+  //   const state = ContentState.createFromBlockArray(contentHTML.contentBlocks,contentHTML.entityMap);
+  //   console.log(state)
+  //   setEditorState(EditorState.createWithContent(state))
+  // }
+
+  const creatDocument = async()=>{
+    try {
+      const response = await axios.post(`${API_URL}/api/Document`,{
+        title,
+        description,
+        content: text
+      })
+      if(response.data.success){
+        alert(response.data.messages);
+        setTitle('');
+        setDescription('');
+        setText('<p></p>');
+        setEditorState(EditorState.createEmpty());
+      }else{
+        alert(response.data.messages);
+      }
+    } catch (error) {
+      alert(error.toString())
+    }
   }
   useEffect(()=>{
-    getText();
+
+
   },[])
   return (
     <div className="main">
@@ -42,6 +76,16 @@ export default function Documents() {
               </div>
               <div className="box-body documents">
                 <div className="form-word">
+                  <div className="form-input">
+                    <label>Tiêu đề</label>
+                    <input className="title" type="text" onChange={onChange} value={title} name="title"/>
+                  </div>
+                 
+                  <div className="form-input">
+                    <label>Mô tả</label>
+                    <input className="description" type="text" onChange={onChange} value={description} name="description"/>
+                  </div>
+                  <label>Nội dung</label>
                   <Editor
                     editorState={editorState}
                     onEditorStateChange={(event)=>{
@@ -51,7 +95,7 @@ export default function Documents() {
                     
                   />
                 </div>
-                <button type="submit">Hoàn thành</button>
+                <button type="submit" onClick={()=>creatDocument()}>Hoàn thành</button>
               </div>
             </div>
           </div>
