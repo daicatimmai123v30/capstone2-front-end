@@ -88,3 +88,8 @@
 .ListDocuments tbody ion-icon{
     cursor: pointer;
 }
+.box .page-navigation{
+  width: 100%;
+  display: flex;
+  justify-content: center;
+}

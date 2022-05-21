@@ -1,5 +1,5 @@
 import axios from "axios";
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState} from "react";
 import { useDispatch, useSelector } from "react-redux";
 import { useHistory } from "react-router";
 import { API_URL, TOKEN } from "../../actions/types";
@@ -9,6 +9,10 @@ import ContainerLeft from "../Container/ContainerLeft";
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 import moment from "moment";
+import {
+  Stack,
+  Pagination
+} from '@mui/material'
 
 import "./ListDocuments.css";
 
@@ -16,7 +20,6 @@ const ListDocuments = () => {
   const history = useHistory();
   const chat = useSelector((state) => state.chat);
   const { user } = useSelector((state) => state.user);
-  console.log(user.role);
   const dispatch = useDispatch();
   const [documents, setDocuments] = useState([]);
   const getDocuments = async () => {
@@ -95,39 +98,23 @@ const ListDocuments = () => {
                       </tr>
                     </tbody>
                   ))}
+                  
                 </table>
               </div>
-              <nav aria-label="Page navigation">
-                <ul className="pagination justify-content-center">
-                  <li className="page-item">
-                    <a className="page-link" href="#" aria-label="Previous">
-                      <span aria-hidden="true">&laquo;</span>
-                      <span className="sr-only">Previous</span>
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      1
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      2
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#">
-                      3
-                    </a>
-                  </li>
-                  <li className="page-item">
-                    <a className="page-link" href="#" aria-label="Next">
-                      <span aria-hidden="true">&raquo;</span>
-                      <span className="sr-only">Next</span>
-                    </a>
-                  </li>
-                </ul>
-              </nav>
+              <div className="page-navigation">
+              <Stack spacing={1}>
+                <Pagination
+                  count={3}
+                  color='primary'
+                  page={2}
+                  // onChange={(event, number) => {
+                  //     navigate(`/Products?pg=${number}`);
+                  //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
+                  //     setProducts(response)
+                  // }}
+                />
+              </Stack>
+              </div>
             </div>
           </div>
         </div>

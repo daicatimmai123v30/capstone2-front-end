@@ -47,11 +47,11 @@ const Schedule =()=>{
                 Subject:args.draggedNodeData.text
             }
             const newCount = count+1;
-            setCount(newCount)
+            setCount(newCount);
             scheduleObj.current.addEvent(eventData)
-            const newDataSource= dataSource;
-            newDataSource.push(eventData)
-            setDatasource(newDataSource)
+            // const newDataSource= dataSource;
+            // newDataSource.push(eventData)
+            // setDatasource(dataSource)
         }
         
         
@@ -95,6 +95,7 @@ const Schedule =()=>{
             
         }
     }
+    console.log(dataSource)
     const updateSchedule=async()=>{
         try {
             const newDataSource = dataSource.map(value=>{
