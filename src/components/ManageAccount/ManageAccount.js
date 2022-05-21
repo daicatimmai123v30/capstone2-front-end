@@ -3,8 +3,10 @@ import ContainerLeft from "../Container/ContainerLeft";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./ManageAccount.css";
+import { useHistory } from "react-router";
 
 export default function ManageAccount() {
+  const history = useHistory();
   return (
     <div className="main">
       <Header />
@@ -15,27 +17,71 @@ export default function ManageAccount() {
             <div className="box">
               <div className="box-header">
                 <label className="box-header-title">Quản lý tài khoản</label>
+                <div className="button-document">
+                  <button
+                    type="button"
+                    className="btn btn-secondary"
+                    onClick={() => history.push("/Create-doctor")}
+                  >
+                    Thêm
+                  </button>
+                </div>
               </div>
               <div className="box-body">
                 <div className="manage-account">
                   <div>
                     <ul className="nav nav-tabs" role="tablist">
                       <li className="nav-item">
-                        <a className="nav-link active" id="home-tab" data-toggle="tab" href="#petowner" role="tab" aria-controls="petowner" aria-selected="true">Pet Owner</a>
+                        <a
+                          className="nav-link active"
+                          id="home-tab"
+                          data-toggle="tab"
+                          href="#petowner"
+                          role="tab"
+                          aria-controls="petowner"
+                          aria-selected="true"
+                        >
+                          Chủ vật nuôi
+                        </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="profile-tab" data-toggle="tab" href="#doctor" role="tab" aria-controls="doctor" aria-selected="false">Doctor</a>
+                        <a
+                          className="nav-link"
+                          id="profile-tab"
+                          data-toggle="tab"
+                          href="#doctor"
+                          role="tab"
+                          aria-controls="doctor"
+                          aria-selected="false"
+                        >
+                          Bác sĩ
+                        </a>
                       </li>
                       <li className="nav-item">
-                        <a className="nav-link" id="contact-tab" data-toggle="tab" href="#manager" role="tab" aria-controls="manager" aria-selected="false">Manager</a>
+                        <a
+                          className="nav-link"
+                          id="contact-tab"
+                          data-toggle="tab"
+                          href="#manager"
+                          role="tab"
+                          aria-controls="manager"
+                          aria-selected="false"
+                        >
+                          Quản lý
+                        </a>
                       </li>
                     </ul>
                     <div className="tab-content">
-                      <div className="tab-pane fade show active" id="petowner" role="tabpanel" aria-labelledby="home-tab">
+                      <div
+                        className="tab-pane fade show active"
+                        id="petowner"
+                        role="tabpanel"
+                        aria-labelledby="home-tab"
+                      >
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">STT</th>
+                              <th scope="col">No</th>
                               <th scope="col">Tài khoản</th>
                               <th scope="col">Xóa</th>
                             </tr>
@@ -43,23 +89,80 @@ export default function ManageAccount() {
                           <tbody>
                             <tr>
                               <td>1</td>
-                              <td>0945228146</td>
-                              <td><ion-icon name="trash-outline"></ion-icon></td>
-                            </tr>
-                            <tr>
-                              <td>2</td>
-                              <td>0839837501</td>
-                              <td><ion-icon name="trash-outline"></ion-icon></td>
+                              <td>Pet Owner</td>
+                              <td>
+                                <ion-icon name="trash-outline"></ion-icon>
+                              </td>
                             </tr>
                           </tbody>
                         </table>
                       </div>
-                      <div className="tab-pane fade" id="doctor" role="tabpanel" aria-labelledby="profile-tab">Doctor</div>
-                      <div className="tab-pane fade" id="manager" role="tabpanel" aria-labelledby="contact-tab">Manager</div>
+                      <div
+                        className="tab-pane fade"
+                        id="doctor"
+                        role="tabpanel"
+                        aria-labelledby="profile-tab"
+                      >
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">No</th>
+                              <th scope="col">Tài khoản</th>
+                              <th scope="col">Sửa</th>
+                              <th scope="col">Xóa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>Veterinarian</td>
+                              <td>
+                                <ion-icon
+                                  name="create-outline"
+                                  onClick={() => history.push("/Create-doctor")}
+                                ></ion-icon>
+                              </td>
+                              <td>
+                                <ion-icon name="trash-outline"></ion-icon>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
+                      <div
+                        className="tab-pane fade"
+                        id="manager"
+                        role="tabpanel"
+                        aria-labelledby="contact-tab"
+                      >
+                        <table class="table table-hover">
+                          <thead>
+                            <tr>
+                              <th scope="col">No</th>
+                              <th scope="col">Tài khoản</th>
+                              <th scope="col">Sửa</th>
+                              <th scope="col">Xóa</th>
+                            </tr>
+                          </thead>
+                          <tbody>
+                            <tr>
+                              <td>1</td>
+                              <td>Manager</td>
+                              <td>
+                                <ion-icon
+                                  name="create-outline"
+                                  onClick={() => history.push("/Create-doctor")}
+                                ></ion-icon>
+                              </td>
+                              <td>
+                                <ion-icon name="trash-outline"></ion-icon>
+                              </td>
+                            </tr>
+                          </tbody>
+                        </table>
+                      </div>
                     </div>
                   </div>
-
-
                 </div>
               </div>
             </div>
@@ -68,5 +171,5 @@ export default function ManageAccount() {
       </div>
       <Footer />
     </div>
-  )
+  );
 }

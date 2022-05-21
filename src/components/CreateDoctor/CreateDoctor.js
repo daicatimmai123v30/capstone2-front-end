@@ -319,7 +319,7 @@ const CreateDoctor = () => {
                                                 ))}
                                             </select>
                                         </div>
-                                        <button type="submit">Thêm tài khoản</button>
+                                        <button type="submit">Xác nhận</button>
                                     </form>
                                 )}
                                 

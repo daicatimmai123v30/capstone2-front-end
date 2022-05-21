@@ -11,8 +11,10 @@ import "./Documents.css";
 import { async } from "@firebase/util";
 import axios from "axios";
 import {API_URL} from '../../actions/types'
+import { useHistory } from "react-router";
 
 export default function Documents() {
+    const history = useHistory();
   const {user} = useSelector(state=>state.user);
   console.log("user")
   
@@ -74,29 +76,57 @@ export default function Documents() {
             <div className="box">
               <div className="box-header">
                 <label className="box-header-title">Tài liệu</label>
+                <div className="button-document">
+                  {user.role === "ADMIN" ? (
+                    <button
+                      type="button"
+                      className="btn btn-secondary"
+                      onClick={() => history.push("/ListDocuments")}
+                    >
+                      Danh sách
+                    </button>
+                  ) : null}
+                </div>
               </div>
               <div className="box-body documents">
                 <div className="form-word">
                   <div className="form-input">
                     <label>Tiêu đề</label>
-                    <input className="title" type="text" onChange={onChange} value={title} name="title"/>
+                    <input
+                      className="title"
+                      type="text"
+                      onChange={onChange}
+                      value={title}
+                      name="title"
+                    />
                   </div>
-                 
+
                   <div className="form-input">
                     <label>Mô tả</label>
-                    <input className="description" type="text" onChange={onChange} value={description} name="description"/>
+                    <input
+                      className="description"
+                      type="text"
+                      onChange={onChange}
+                      value={description}
+                      name="description"
+                    />
                   </div>
                   <label>Nội dung</label>
                   <Editor
                     editorState={editorState}
-                    onEditorStateChange={(event)=>{
-                      setEditorState(event)
-                      setText( draftToHtml(convertToRaw(editorState.getCurrentContent())));
+                    onEditorStateChange={(event) => {
+                      setEditorState(event);
+                      setText(
+                        draftToHtml(
+                          convertToRaw(editorState.getCurrentContent())
+                        )
+                      );
                     }}
-                    
                   />
                 </div>
-                <button type="submit" onClick={()=>creatDocument()}>Hoàn thành</button>
+                <button type="submit" onClick={() => creatDocument()}>
+                  Hoàn thành
+                </button>
               </div>
             </div>
           </div>
