@@ -3,14 +3,14 @@ import ContainerLeft from "../Container/ContainerLeft";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./Statistical.css";
-// import { Animation } from "@devexpress/dx-react-chart";
-// import {
-//   Chart,
-//   BarSeries,
-//   Title,
-//   ArgumentAxis,
-//   ValueAxis,
-// } from "@devexpress/dx-react-chart-material-ui";
+import { Animation } from "@devexpress/dx-react-chart";
+import {
+  Chart,
+  BarSeries,
+  Title,
+  ArgumentAxis,
+  ValueAxis,
+} from "@devexpress/dx-react-chart-material-ui";
 
 import axios from "axios";
 import { API_URL, TOKEN } from "../../actions/types";
@@ -130,12 +130,12 @@ export default function Statistical() {
                     </div>
                   </div>
                 </div>
-                {/* <Chart data={data}>
+                <Chart data={data}>
                   <ArgumentAxis />
                   <ValueAxis max={7} />
                   <BarSeries valueField="population" argumentField="year" />
                   <Animation />
-                </Chart> */}
+                </Chart>
               </div>
             </div>
           </div>
