@@ -19,8 +19,8 @@ export default function VideoCall(props) {
   const connectionRef = useRef();
   useEffect(() => {
     navigator.mediaDevices
-      .getUserMedia({ video: true, audio: true })
-      .then((stream) => {
+      ?.getUserMedia({ video: true, audio: true })
+      ?.then((stream) => {
         setStream(stream);
         myVideo.current.srcObject = stream;
       });

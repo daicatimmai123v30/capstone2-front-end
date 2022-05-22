@@ -4,7 +4,10 @@ import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./ManageAccount.css";
 import { useHistory } from "react-router";
-
+import {
+  Stack,
+  Pagination
+} from '@mui/material'
 export default function ManageAccount() {
   const history = useHistory();
   return (
@@ -81,7 +84,9 @@ export default function ManageAccount() {
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">No</th>
+                              <th scope="col">No</th> 
+                              <th scope="col">First name</th>
+                              <th scope="col">Last name</th>
                               <th scope="col">Tài khoản</th>
                               <th scope="col">Xóa</th>
                             </tr>
@@ -89,6 +94,8 @@ export default function ManageAccount() {
                           <tbody>
                             <tr>
                               <td>1</td>
+                              <td>last name</td>
+                              <td>first name</td>
                               <td>Pet Owner</td>
                               <td>
                                 <ion-icon name="trash-outline"></ion-icon>
@@ -107,21 +114,18 @@ export default function ManageAccount() {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
+                              <th scope="col">First name</th>
+                              <th scope="col">Last name</th>
                               <th scope="col">Tài khoản</th>
-                              <th scope="col">Sửa</th>
                               <th scope="col">Xóa</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <td>1</td>
+                              <td>last name</td>
+                              <td>first name</td>
                               <td>Veterinarian</td>
-                              <td>
-                                <ion-icon
-                                  name="create-outline"
-                                  onClick={() => history.push("/Create-doctor")}
-                                ></ion-icon>
-                              </td>
                               <td>
                                 <ion-icon name="trash-outline"></ion-icon>
                               </td>
@@ -139,21 +143,18 @@ export default function ManageAccount() {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
+                              <th scope="col">First name</th>
+                              <th scope="col">Last name</th>
                               <th scope="col">Tài khoản</th>
-                              <th scope="col">Sửa</th>
                               <th scope="col">Xóa</th>
                             </tr>
                           </thead>
                           <tbody>
                             <tr>
                               <td>1</td>
+                              <td>first name</td>
+                              <td>last name</td>
                               <td>Manager</td>
-                              <td>
-                                <ion-icon
-                                  name="create-outline"
-                                  onClick={() => history.push("/Create-doctor")}
-                                ></ion-icon>
-                              </td>
                               <td>
                                 <ion-icon name="trash-outline"></ion-icon>
                               </td>
@@ -164,6 +165,20 @@ export default function ManageAccount() {
                     </div>
                   </div>
                 </div>
+                <div className="page-navigation">
+                    <Stack spacing={1}>
+                      <Pagination
+                        count={3}
+                        color='primary'
+                        page={2}
+                        // onChange={(event, number) => {
+                        //     navigate(`/Products?pg=${number}`);
+                        //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
+                        //     setProducts(response)
+                        // }}
+                      />
+                    </Stack>
+                  </div>
               </div>
             </div>
           </div>

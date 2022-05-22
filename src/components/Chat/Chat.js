@@ -132,7 +132,7 @@ function Chat(props) {
 
 
   const onCallUser=async()=>{
-    const stream =await navigator.mediaDevices.getUserMedia({ video: true, audio: true })
+    const stream =await navigator?.mediaDevices?.getUserMedia({ video: true, audio: true })
     const peer = props.callUser(stream);
     window.peer= peer;
     window.destroy = props.leaveCall;

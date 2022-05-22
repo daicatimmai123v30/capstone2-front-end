@@ -63,7 +63,6 @@ const Mainrouter = () => {
   const connectionRef= useRef();
   const history = useHistory();
   const [nameCaller,setNameCaller] = useState("");
-
   const checkToken = async () => {
     const token = localStorage.getItem(TOKEN);
     try {
@@ -96,7 +95,9 @@ const Mainrouter = () => {
       dispatch({ type: ACTIVE_USER, payload: user?.user?._id });
   };
   const loadSocket = () => {
-    socket.emit("me",user?.user?._id,function (socket){return setMe(socket)});
+    socket.emit("me", user?.user?._id, function (socket){
+      return setMe(socket)
+    });
     window.addEventListener('beforeunload', function (e) {
       dispatch({type:REFUSE_CALLING})
       socket.emit("forceDisconnect",user?.user?._id);
@@ -106,12 +107,12 @@ const Mainrouter = () => {
     });
 
     socket.on("callUser", (data) => {
+
       // setReceivingCall(true);
       setCaller(data.from);
       setCallerSignal(data.signal);
       dispatch({type:WAIT_CALLING});
       setNameCaller(data.name)
-      console.log(data)
     });
 
   };
@@ -186,6 +187,7 @@ const Mainrouter = () => {
       </Route>
       {user.isAuthentication ? (
         <>
+        
           <Route path="/List-doctor" component={ListDoctor} />
           <Route path="/Doctor/:slug" component={Doctor} />
           <Route path="/List-pet" component={ListPet} />

@@ -1,3 +1,7 @@
+
+.manage-account{
+    min-height: 500px;
+}
 .manage-account td ion-icon{
     cursor: pointer;
 }

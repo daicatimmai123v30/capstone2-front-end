@@ -13,6 +13,7 @@ const Home = (props) =>{
     const user = useSelector(state =>state.user)
     const history = useHistory();
     const onAnswerCall=async()=>{
+
         const stream = await navigator.mediaDevices.getUserMedia({ video: true, audio: true });
         const peer = props.answerCall(stream);
         window.peer = peer;
