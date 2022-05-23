@@ -1,17 +1,71 @@
-import React from 'react'
+import axios from "axios";
 import ContainerLeft from "../Container/ContainerLeft";
 import Header from "../Header/Header";
 import Footer from "../Footer/Footer";
 import "./ManageAccount.css";
-import { useHistory } from "react-router";
-import {
-  Stack,
-  Pagination
-} from '@mui/material'
-export default function ManageAccount() {
+import { useHistory, useLocation } from "react-router";
+import { Stack, Pagination } from "@mui/material";
+import { API_URL, TOKEN } from "../../actions/types";
+import React, { useEffect, useState } from "react";
+import setAuthToken from "../../utils/setAuthToken";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
+
+const ManageAccount = () => {
+  const { search } = useLocation();
   const history = useHistory();
+  const [accountDoctor, setAccountDoctor] = useState([]);
+  const [accountOwner, setAccountOwner] = useState([]);
+  const [totalDoctor, setTotalDoctor] = useState("");
+  const [totalOwner, setTotalOwner] = useState("");
+  const [page, setPage] = useState(search.split("?")[1].split("=")[1]);
+  const getAccount = async () => {
+    try {
+      setAuthToken(localStorage.getItem(TOKEN));
+      const totalAccount = "";
+      const response = await axios.get(`${API_URL}/api/Account/all?pg=${page}`);
+      const { data } = response;
+      setTotalDoctor(data.doctor.total);
+      setTotalOwner(data.owner.total);
+      if (totalDoctor % 5 === totalAccount || totalOwner % 5 === totalAccount) {
+        page = totalAccount + 1;
+      }
+      setAccountDoctor(response.data.doctor.account);
+      setAccountOwner(response.data.owner.account);
+      console.log("account: ", response.data.doctor.total);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
+  useEffect(() => {
+    getAccount();
+  }, []);
+
+  const deleteAccount = async (_id) => {
+    console.log("chung");
+    try {
+      const response = await axios.delete(`${API_URL}/api/Account/${_id}`);
+      const notifyDelete = () => {
+        toast("Delete Success", { className: "notify", draggable: true });
+      };
+      notifyDelete();
+      console.log(response);
+      // setAccountDoctor(response);
+      // setAccountOwner(response);
+      getAccount();
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   return (
     <div className="main">
+      <ToastContainer
+        draggable={false}
+        transition={Bounce}
+        autoClose={2500}
+      ></ToastContainer>
       <Header />
       <div className="body">
         <div className="body-container">
@@ -84,25 +138,44 @@ export default function ManageAccount() {
                         <table class="table table-hover">
                           <thead>
                             <tr>
-                              <th scope="col">No</th> 
-                              <th scope="col">First name</th>
-                              <th scope="col">Last name</th>
+                              <th scope="col">No</th>
+                              <th scope="col">Họ</th>
+                              <th scope="col">Tên</th>
                               <th scope="col">Tài khoản</th>
                               <th scope="col">Xóa</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>last name</td>
-                              <td>first name</td>
-                              <td>Pet Owner</td>
-                              <td>
-                                <ion-icon name="trash-outline"></ion-icon>
-                              </td>
-                            </tr>
+                            {accountOwner?.map((value, index) => (
+                              <tr key={index}>
+                                <th>{index + 1}</th>
+                                <td>{value.lastName}</td>
+                                <td>{value.firstName}</td>
+                                <td>{value.idNumber.phoneNumber}</td>
+                                <td>
+                                  <ion-icon
+                                    name="trash-outline"
+                                    onClick={() => deleteAccount(value._id)}
+                                  ></ion-icon>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
+                        <div className="page-navigation">
+                          <Stack spacing={1}>
+                            <Pagination
+                              count={3}
+                              color="primary"
+                              page={2}
+                              // onChange={(event, number) => {
+                              //     navigate(`/Products?pg=${number}`);
+                              //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
+                              //     setProducts(response)
+                              // }}
+                            />
+                          </Stack>
+                        </div>
                       </div>
                       <div
                         className="tab-pane fade"
@@ -114,24 +187,43 @@ export default function ManageAccount() {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
-                              <th scope="col">First name</th>
-                              <th scope="col">Last name</th>
+                              <th scope="col">Họ</th>
+                              <th scope="col">Tên</th>
                               <th scope="col">Tài khoản</th>
                               <th scope="col">Xóa</th>
                             </tr>
                           </thead>
                           <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>last name</td>
-                              <td>first name</td>
-                              <td>Veterinarian</td>
-                              <td>
-                                <ion-icon name="trash-outline"></ion-icon>
-                              </td>
-                            </tr>
+                            {accountDoctor?.map((value, index) => (
+                              <tr key={index}>
+                                <th>{index + 1}</th>
+                                <td>{value.lastName}</td>
+                                <td>{value.firstName}</td>
+                                <td>{value.account.username}</td>
+                                <td>
+                                  <ion-icon
+                                    name="trash-outline"
+                                    onClick={() => deleteAccount(value._id)}
+                                  ></ion-icon>
+                                </td>
+                              </tr>
+                            ))}
                           </tbody>
                         </table>
+                        <div className="page-navigation">
+                          <Stack spacing={1}>
+                            <Pagination
+                              count={3}
+                              color="primary"
+                              page={2}
+                              // onChange={(event, number) => {
+                              //     navigate(`/Products?pg=${number}`);
+                              //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
+                              //     setProducts(response)
+                              // }}
+                            />
+                          </Stack>
+                        </div>
                       </div>
                       <div
                         className="tab-pane fade"
@@ -143,8 +235,8 @@ export default function ManageAccount() {
                           <thead>
                             <tr>
                               <th scope="col">No</th>
-                              <th scope="col">First name</th>
-                              <th scope="col">Last name</th>
+                              <th scope="col">Họ</th>
+                              <th scope="col">Tên</th>
                               <th scope="col">Tài khoản</th>
                               <th scope="col">Xóa</th>
                             </tr>
@@ -161,24 +253,24 @@ export default function ManageAccount() {
                             </tr>
                           </tbody>
                         </table>
+                        <div className="page-navigation">
+                          <Stack spacing={1}>
+                            <Pagination
+                              count={3}
+                              color="primary"
+                              page={2}
+                              // onChange={(event, number) => {
+                              //     navigate(`/Products?pg=${number}`);
+                              //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
+                              //     setProducts(response)
+                              // }}
+                            />
+                          </Stack>
+                        </div>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div className="page-navigation">
-                    <Stack spacing={1}>
-                      <Pagination
-                        count={3}
-                        color='primary'
-                        page={2}
-                        // onChange={(event, number) => {
-                        //     navigate(`/Products?pg=${number}`);
-                        //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
-                        //     setProducts(response)
-                        // }}
-                      />
-                    </Stack>
-                  </div>
               </div>
             </div>
           </div>
@@ -187,4 +279,6 @@ export default function ManageAccount() {
       <Footer />
     </div>
   );
-}
+};
+
+export default ManageAccount;

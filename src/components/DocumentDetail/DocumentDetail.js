@@ -13,9 +13,9 @@ const DocumentDetail = () => {
     const chat = useSelector(state => state.chat);
     const params = useParams();
     const [data,setData] = useState({
-        title:'ádsađá',
-        description: 'áđasa',
-        content : '<p>sadsadasdd</p>'
+        title:'',
+        description: '',
+        content : ''
     }) 
 
     const getData =async()=>{

@@ -22,12 +22,12 @@ const Header = () => {
         clearInterval(interval)
     }
     useEffect(()=>{
-        interval=setInterval(()=>{
-            loadMessages();
-        },1000);
-        return ()=>{
-            clearInterval(interval)
-        }
+        // interval=setInterval(()=>{
+        //     loadMessages();
+        // },1000);
+        // return ()=>{
+        //     clearInterval(interval)
+        // }
     },[])
     const loadMessages=async()=>{
         try {

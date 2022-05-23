@@ -1,8 +1,13 @@
 import React, { useEffect, useState } from "react";
-import {useSelector} from 'react-redux'
+import { useSelector } from "react-redux";
 import { Editor } from "react-draft-wysiwyg";
-import { EditorState,convertToRaw,convertFromHTML,ContentState} from "draft-js";
-import draftToHtml from 'draftjs-to-html'
+import {
+  EditorState,
+  convertToRaw,
+  convertFromHTML,
+  ContentState,
+} from "draft-js";
+import draftToHtml from "draftjs-to-html";
 import "react-draft-wysiwyg/dist/react-draft-wysiwyg.css";
 import ContainerLeft from "../Container/ContainerLeft";
 import Header from "../Header/Header";
@@ -10,29 +15,31 @@ import Footer from "../Footer/Footer";
 import "./Documents.css";
 import { async } from "@firebase/util";
 import axios from "axios";
-import {API_URL} from '../../actions/types'
+import { API_URL } from "../../actions/types";
 import { useHistory } from "react-router";
+import { ToastContainer, toast, Bounce } from "react-toastify";
+import "react-toastify/dist/ReactToastify.css";
 
 export default function Documents() {
-    const history = useHistory();
-  const {user} = useSelector(state=>state.user);
-  console.log("user")
-  
+  const history = useHistory();
+  const { user } = useSelector((state) => state.user);
+  console.log("user");
+
   const [editorState, setEditorState] = useState(() =>
     EditorState.createEmpty()
   );
-  const [text,setText] = useState('<p></p>');
-  const [title,setTitle] = useState('');
-  const [description,setDescription] = useState('');
+  const [text, setText] = useState("<p></p>");
+  const [title, setTitle] = useState("");
+  const [description, setDescription] = useState("");
 
-  const onChange =(event)=>{
-    if(event.target.name == 'title'){
-      setTitle(event.target.value)
-    }else if(event.target.name == 'description'){
+  const onChange = (event) => {
+    if (event.target.name == "title") {
+      setTitle(event.target.value);
+    } else if (event.target.name == "description") {
       setDescription(event.target.value);
     }
-  }
-  
+  };
+
   // const getText=async()=>{
   //   const string = "<p><strong>123123123213</strong></p>"+
   //   "<h1><strong>asdadasd</strong></h1>";
@@ -42,32 +49,42 @@ export default function Documents() {
   //   setEditorState(EditorState.createWithContent(state))
   // }
 
-  const creatDocument = async()=>{
+  const creatDocument = async () => {
     try {
-      const response = await axios.post(`${API_URL}/api/Document`,{
+      const response = await axios.post(`${API_URL}/api/Document`, {
         title,
         description,
-        content: text
-      })
-      if(response.data.success){
-        alert(response.data.messages);
-        setTitle('');
-        setDescription('');
-        setText('<p></p>');
+        content: text,
+      });
+      const notifyCreateDocument = () => {
+        toast(response.data.messages, {
+          className: "notify",
+          draggable: true,
+        });
+      };
+      if (response.data.success) {
+        // alert(response.data.messages);
+        notifyCreateDocument();
+        setTitle("");
+        setDescription("");
+        setText("<p></p>");
         setEditorState(EditorState.createEmpty());
-      }else{
-        alert(response.data.messages);
+      } else {
+        // alert(response.data.messages);
+        notifyCreateDocument();
       }
     } catch (error) {
-      alert(error.toString())
+      alert(error.toString());
     }
-  }
-  useEffect(()=>{
-
-
-  },[])
+  };
+  useEffect(() => {}, []);
   return (
     <div className="main">
+      <ToastContainer
+        draggable={false}
+        transition={Bounce}
+        autoClose={2500}
+      ></ToastContainer>
       <Header />
       <div className="body">
         <div className="body-container">

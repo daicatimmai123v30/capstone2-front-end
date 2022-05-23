@@ -1,10 +1,24 @@
-
-.manage-account{
-    min-height: 500px;
+.manage-account {
+  min-height: 500px;
 }
-.manage-account td ion-icon{
-    cursor: pointer;
+.manage-account td ion-icon {
+  cursor: pointer;
 }
-.manage-account ul li a{
-    color: rgb(116, 116, 116);
+.manage-account ul li a {
+  color: rgb(116, 116, 116);
+}
+/* .notify {
+  background-color: rgb(139, 167, 150) !important;
+  color: white !important;
+  text-align: center !important;
+} */
+.tab-content {
+  height: 500px;
+}
+.tab-content .tab-pane {
+  height: 500px;
+}
+.tab-content .page-navigation {
+  height: 80%;
+  align-items: flex-end;
 }

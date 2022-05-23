@@ -123,7 +123,7 @@ const ContainerLeft = () => {
             {user.user.role === "ADMIN" ? (
               <button
                 className="btn-process"
-                onClick={() => history.push("/Manage-account")}
+                onClick={() => history.push("/Manage-account?pg=1")}
               >
                 <label className="btn-label">Quản lý tài khoản</label>
                 <ion-icon

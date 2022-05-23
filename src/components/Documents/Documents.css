@@ -1,27 +1,32 @@
-.documents .form-word{
-    border: 1px solid rgb(197, 197, 197);
-    border-radius: 5px;
-    padding: 8px;
-    min-height: 500px;
+.documents .form-word {
+  border: 1px solid rgb(197, 197, 197);
+  border-radius: 5px;
+  padding: 8px;
+  min-height: 500px;
 }
-.documents button{
-    border: 1px solid #78A570;
-    border-radius: 5px;
-    background-color: #78A570;
-    color: rgb(255, 255, 255);
-    margin-top: 10px;
-    padding: 5px;
-    transition: 0.5s;
+.documents button {
+  border: 1px solid #78a570;
+  border-radius: 5px;
+  background-color: #78a570;
+  color: rgb(255, 255, 255);
+  margin-top: 10px;
+  padding: 5px;
+  transition: 0.5s;
 }
-.documents button:hover{
-    background-color: rgb(184, 184, 184);
-    color: black;
-    transition: 0.5s;
+.documents button:hover {
+  background-color: rgb(184, 184, 184);
+  color: black;
+  transition: 0.5s;
 }
-.documents .form-word label{
-    font-size: 19px;
-    font-family: 'Times New Roman', Times, serif;
+.documents .form-word label {
+  font-size: 19px;
+  font-family: "Times New Roman", Times, serif;
 }
-.documents .form-word .form-input input{
-    height: 35px;
+.documents .form-word .form-input input {
+  height: 35px;
 }
+/* .notify {
+  background-color: rgb(139, 167, 150) !important;
+  color: white !important;
+  text-align: center !important;
+} */
