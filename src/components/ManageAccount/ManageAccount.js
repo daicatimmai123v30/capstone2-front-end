@@ -10,16 +10,16 @@ import React, { useEffect, useState } from "react";
 import setAuthToken from "../../utils/setAuthToken";
 import { ToastContainer, toast, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
-
 const ManageAccount = () => {
   const { search } = useLocation();
   const history = useHistory();
   const [accountDoctor, setAccountDoctor] = useState([]);
   const [accountOwner, setAccountOwner] = useState([]);
-  const [totalDoctor, setTotalDoctor] = useState("");
-  const [totalOwner, setTotalOwner] = useState("");
+  const [totalDoctor, setTotalDoctor] = useState(0);
+  const [totalOwner, setTotalOwner] = useState(0);
+  
   const [page, setPage] = useState(search.split("?")[1].split("=")[1]);
-  const getAccount = async () => {
+  const getAccount = async (page) => {
     try {
       setAuthToken(localStorage.getItem(TOKEN));
       const totalAccount = "";
@@ -27,33 +27,30 @@ const ManageAccount = () => {
       const { data } = response;
       setTotalDoctor(data.doctor.total);
       setTotalOwner(data.owner.total);
-      if (totalDoctor % 5 === totalAccount || totalOwner % 5 === totalAccount) {
-        page = totalAccount + 1;
-      }
-      setAccountDoctor(response.data.doctor.account);
-      setAccountOwner(response.data.owner.account);
-      console.log("account: ", response.data.doctor.total);
+      setAccountDoctor(data.doctor.account);
+      setAccountOwner(data.owner.account);
     } catch (error) {
       console.log(error);
     }
   };
 
   useEffect(() => {
-    getAccount();
+    getAccount(page);
   }, []);
-
+  const notifyDelete = (messages) => {
+    toast(messages, { className: "notify", draggable: true });
+  };
   const deleteAccount = async (_id) => {
-    console.log("chung");
     try {
       const response = await axios.delete(`${API_URL}/api/Account/${_id}`);
-      const notifyDelete = () => {
-        toast("Delete Success", { className: "notify", draggable: true });
-      };
-      notifyDelete();
-      console.log(response);
+      if(response.data.success){
+        notifyDelete("Xóa thành công");
+      }else{
+        notifyDelete("Xóa không thành công");
+      }
       // setAccountDoctor(response);
       // setAccountOwner(response);
-      getAccount();
+      getAccount(page);
     } catch (error) {
       console.log(error);
     }
@@ -135,46 +132,46 @@ const ManageAccount = () => {
                         role="tabpanel"
                         aria-labelledby="home-tab"
                       >
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">No</th>
-                              <th scope="col">Họ</th>
-                              <th scope="col">Tên</th>
-                              <th scope="col">Tài khoản</th>
-                              <th scope="col">Xóa</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {accountOwner?.map((value, index) => (
-                              <tr key={index}>
-                                <th>{index + 1}</th>
-                                <td>{value.lastName}</td>
-                                <td>{value.firstName}</td>
-                                <td>{value.idNumber.phoneNumber}</td>
-                                <td>
-                                  <ion-icon
-                                    name="trash-outline"
-                                    onClick={() => deleteAccount(value._id)}
-                                  ></ion-icon>
-                                </td>
+                        <div className="table-content">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Họ</th>
+                                <th scope="col">Tên</th>
+                                <th scope="col">Tài khoản</th>
+                                <th scope="col">Xóa</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                        <div className="page-navigation">
-                          <Stack spacing={1}>
-                            <Pagination
-                              count={3}
-                              color="primary"
-                              page={2}
-                              // onChange={(event, number) => {
-                              //     navigate(`/Products?pg=${number}`);
-                              //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
-                              //     setProducts(response)
-                              // }}
-                            />
-                          </Stack>
+                            </thead>
+                            <tbody>
+                              {accountOwner?.map((value, index) => (
+                                <tr key={index}>
+                                  <th>{index + 1}</th>
+                                  <td>{value.lastName}</td>
+                                  <td>{value.firstName}</td>
+                                  <td>{value.idNumber.phoneNumber}</td>
+                                  <td>
+                                    <ion-icon
+                                      name="trash-outline"
+                                      onClick={() => deleteAccount(value._id)}
+                                    ></ion-icon>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          <div className="page-navigation">
+                            <Stack spacing={1}>
+                              <Pagination
+                                count={(totalOwner/5) + (totalOwner%5 >0 ? 1 : 0)}
+                                color="primary"
+                                page={Number(page)}
+                                onChange={(event, number) => {
+                                  getAccount(number);
+                                }}
+                              />
+                            </Stack>
+                          </div>
                         </div>
                       </div>
                       <div
@@ -183,46 +180,46 @@ const ManageAccount = () => {
                         role="tabpanel"
                         aria-labelledby="profile-tab"
                       >
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">No</th>
-                              <th scope="col">Họ</th>
-                              <th scope="col">Tên</th>
-                              <th scope="col">Tài khoản</th>
-                              <th scope="col">Xóa</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            {accountDoctor?.map((value, index) => (
-                              <tr key={index}>
-                                <th>{index + 1}</th>
-                                <td>{value.lastName}</td>
-                                <td>{value.firstName}</td>
-                                <td>{value.account.username}</td>
-                                <td>
-                                  <ion-icon
-                                    name="trash-outline"
-                                    onClick={() => deleteAccount(value._id)}
-                                  ></ion-icon>
-                                </td>
+                        <div className="table-content">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Họ</th>
+                                <th scope="col">Tên</th>
+                                <th scope="col">Tài khoản</th>
+                                <th scope="col">Xóa</th>
                               </tr>
-                            ))}
-                          </tbody>
-                        </table>
-                        <div className="page-navigation">
-                          <Stack spacing={1}>
-                            <Pagination
-                              count={3}
-                              color="primary"
-                              page={2}
-                              // onChange={(event, number) => {
-                              //     navigate(`/Products?pg=${number}`);
-                              //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
-                              //     setProducts(response)
-                              // }}
-                            />
-                          </Stack>
+                            </thead>
+                            <tbody>
+                              {accountDoctor?.map((value, index) => (
+                                <tr key={index}>
+                                  <th>{index + 1}</th>
+                                  <td>{value.lastName}</td>
+                                  <td>{value.firstName}</td>
+                                  <td>{value.account.username}</td>
+                                  <td>
+                                    <ion-icon
+                                      name="trash-outline"
+                                      onClick={() => deleteAccount(value._id)}
+                                    ></ion-icon>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          <div className="page-navigation">
+                            <Stack spacing={1}>
+                              <Pagination
+                                count={(totalDoctor/5) + (totalDoctor%5 >0 ? 1 : 0)}
+                                color="primary"
+                                page={Number(page)}
+                                onChange={(event, number) => {
+                                  getAccount(number);
+                                }}
+                              />
+                            </Stack>
+                          </div>
                         </div>
                       </div>
                       <div
@@ -231,41 +228,47 @@ const ManageAccount = () => {
                         role="tabpanel"
                         aria-labelledby="contact-tab"
                       >
-                        <table class="table table-hover">
-                          <thead>
-                            <tr>
-                              <th scope="col">No</th>
-                              <th scope="col">Họ</th>
-                              <th scope="col">Tên</th>
-                              <th scope="col">Tài khoản</th>
-                              <th scope="col">Xóa</th>
-                            </tr>
-                          </thead>
-                          <tbody>
-                            <tr>
-                              <td>1</td>
-                              <td>first name</td>
-                              <td>last name</td>
-                              <td>Manager</td>
-                              <td>
-                                <ion-icon name="trash-outline"></ion-icon>
-                              </td>
-                            </tr>
-                          </tbody>
-                        </table>
-                        <div className="page-navigation">
-                          <Stack spacing={1}>
-                            <Pagination
-                              count={3}
-                              color="primary"
-                              page={2}
-                              // onChange={(event, number) => {
-                              //     navigate(`/Products?pg=${number}`);
-                              //     const response = JSON.parse(localStorage.getItem('PRODUCTS')).splice((number-1)*8,8);
-                              //     setProducts(response)
-                              // }}
-                            />
-                          </Stack>
+                        <div className="table-content">
+                          <table class="table table-hover">
+                            <thead>
+                              <tr>
+                                <th scope="col">No</th>
+                                <th scope="col">Họ</th>
+                                <th scope="col">Tên</th>
+                                <th scope="col">Tài khoản</th>
+                                <th scope="col">Xóa</th>
+                              </tr>
+
+                            </thead>
+                            <tbody>
+                              {accountDoctor?.map((value, index) => (
+                                <tr key={index}>
+                                  <th>{index + 1}</th>
+                                  <td>{value.lastName}</td>
+                                  <td>{value.firstName}</td>
+                                  <td>{value.account.username}</td>
+                                  <td>
+                                    <ion-icon
+                                      name="trash-outline"
+                                      onClick={() => deleteAccount(value._id)}
+                                    ></ion-icon>
+                                  </td>
+                                </tr>
+                              ))}
+                            </tbody>
+                          </table>
+                          <div className="page-navigation">
+                            <Stack spacing={1}>
+                              <Pagination
+                                count={(totalDoctor/5) + (totalDoctor%5 >0 ? 1 : 0)}
+                                color="primary"
+                                page={Number(page)}
+                                onChange={(event, number) => {
+                                  getAccount(number);
+                                }}
+                              />
+                            </Stack>
+                          </div>
                         </div>
                       </div>
                     </div>

@@ -18,7 +18,10 @@
 .tab-content .tab-pane {
   height: 500px;
 }
-.tab-content .page-navigation {
-  height: 80%;
-  align-items: flex-end;
+.tab-content .tab-pane .table-content{
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
 }
